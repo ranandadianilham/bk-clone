@@ -2,26 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+    font-family: 'FlameBold';
+    src: url('/fonts/FlameBold.otf'); 
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+    font-family: 'Flame-Regular';
+    src: url('/fonts/FlameRegular.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    width: 100vw;
 }
+
+.left-nav div {
+    margin: 0 10px;
+}
+
+.left-nav .title {
+    font-size: 25px;
+    color: white;
+    font-family: 'FlameBold', serif;
+}
+
+.left-nav .subtitle {
+    color: #faaf18;
+    font-family: 'Flame-Regular', serif;
+}
+
+.right-nav div {
+    margin: 0 10px;
+    font-size: 25px;
+    color: white;
+    font-family: 'FlameBold', serif;
+}
+
+.chevron-slider {
+    width: 40px;
+    height: 40px;
+}
+
+/* .slider-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 50px;
+    grid-gap: 5px;
+} */
