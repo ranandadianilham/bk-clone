@@ -6,7 +6,7 @@ import Select from "react-select";
 import TimePicker from "react-time-picker";
 type Props = {};
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   const [useSelectedTime, setSelectedTime] = useState<timeOptType>(timeOptions[0]);
 
   /* const generateTimeOptions = (startHour = 0, endHour = 23, interval = 60) => {
@@ -115,4 +115,4 @@ const page = (props: Props) => {
   );
 };
 
-export default page;
+export default Page;
