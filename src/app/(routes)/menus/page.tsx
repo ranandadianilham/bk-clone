@@ -1,4 +1,4 @@
-import React,  from 'react'
+import React  from 'react'
 import {menuGroup} from "@/app/_datas/menu";
 import SearchIcon from "@/app/_components/icons/Search";
 type Props = {}
