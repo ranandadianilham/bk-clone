@@ -3,7 +3,7 @@ import {menuGroup} from "@/app/_datas/menu";
 import SearchIcon from "@/app/_components/icons/Search";
 type Props = {}
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   return (
     <div className='min-h-[74vh] mb-5'>
       <div className='flex flex-row justify-center w-3/4 mx-auto mt-5 gap-3'>
@@ -46,4 +46,4 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default Page

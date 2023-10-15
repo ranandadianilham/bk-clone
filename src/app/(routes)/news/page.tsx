@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {}
 
-const page = (props: Props) => {
+const Page = (props: Props) => {
   return (
     <div className='min-h-[74vh] my-20'>
       <div className='news-wrapper flex flex-col w-2/4 mx-auto'>
@@ -40,4 +40,4 @@ const page = (props: Props) => {
   )
 }
 
-export default page
+export default Page
