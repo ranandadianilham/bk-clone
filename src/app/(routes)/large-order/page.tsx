@@ -1,14 +1,13 @@
 "use client";
 import Link from "next/link";
 import {timeOptions, timeOptType} from "@/app/_datas/time-picker";
-import React, { useEffect, useId, useState } from "react";
-import { SingleValue, ActionMeta, InputActionMeta } from "react-select";
+import React, {useId, useState } from "react";
 import Select from "react-select";
 import TimePicker from "react-time-picker";
 type Props = {};
 
 const page = (props: Props) => {
-  const [selectedTime, setSelectedTime] = useState<timeOptType>(timeOptions[0]);
+  const [useSelectedTime, setSelectedTime] = useState<timeOptType>(timeOptions[0]);
 
   /* const generateTimeOptions = (startHour = 0, endHour = 23, interval = 60) => {
     const timeOptions = [];
@@ -29,9 +28,6 @@ const page = (props: Props) => {
   };
 
   
-
-  useEffect(() => {
-  }, []);
 
   return (
     <div className="min-h-[74vh] mb-20">
@@ -85,7 +81,7 @@ const page = (props: Props) => {
                         
                     }}
                     inputValue={""}
-                    value={selectedTime}
+                    value={useSelectedTime}
                   />
                   <input className="w-4/12" type="text" placeholder="Email" />
                   <textarea

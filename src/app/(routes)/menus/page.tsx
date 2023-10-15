@@ -1,11 +1,9 @@
-'use client';
-import React, { useState } from 'react'
+import React,  from 'react'
 import {menuGroup} from "@/app/_datas/menu";
 import SearchIcon from "@/app/_components/icons/Search";
 type Props = {}
 
 const page = (props: Props) => {
-  const [selected, isSelected] = useState(true);
   return (
     <div className='min-h-[74vh] mb-5'>
       <div className='flex flex-row justify-center w-3/4 mx-auto mt-5 gap-3'>
