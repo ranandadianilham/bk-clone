@@ -1,14 +1,17 @@
 export const leftNavigation = [
     {
         title: "Order",
-        subTitle: "Delivery"
+        subTitle: "Delivery",
+        path: '/menus'
     },
     {
         title: "Promotions",
-        subTitle: "Get Fresh"
+        subTitle: "Get Fresh",
+        path: '/news'
     },
      {
         title: "Large Order",
-        subTitle: "Exclusive"
+        subTitle: "Exclusive",
+        path: "/large-order"
     }
 ]

@@ -15,12 +15,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
+/* body {
     width: 100vw;
-}
+} */
 
 .left-nav div {
     margin: 0 10px;
@@ -55,3 +54,69 @@ body {
     grid-auto-rows: 50px;
     grid-gap: 5px;
 } */
+
+.menu-title-wrapper {
+    font-family: "FlameBold", serif;
+    color: #8b542f;
+    font-weight: normal;
+    font-size: 32px;
+}
+
+.menu-box .bottom-part {
+    font-family: 'FlameBold', serif;
+}
+
+.title-col {
+    font-size: 21px;
+    color: #8b542f;
+    font-family: 'FlameBold', serif;
+}
+
+.order-col {
+    color: white;
+    font-size: 16px;
+    font-family: 'Flame-Regular', serif;
+}
+
+.footer-container {
+    color: white
+}
+
+.footer-container div {
+    margin: 10px 0;
+}
+
+.footer-container div:first-child {
+    font-size: 20px;
+    font-family: 'Flame-Regular', serif;
+}
+
+.footer-container div:nth-child(3) a, .footer-container div:nth-child(3) span {
+    margin-right: 10px;
+    color: #919191;
+    font-size: 12px;
+}
+
+.footer-container div:nth-child(3) a:hover {
+    color: white;
+}
+
+/* menu */
+
+.left-menu-group > div {
+    font-family: 'Flame-Regular', serif;
+    color: #502315;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.right-menu-sub > div div:nth-child(2) {
+    font-family: "Flame-Regular", serif;
+    margin-top: 10px;
+}
+
+.right-menu-sub > div div:nth-child(2) > p:first-child {
+    font-size: 20px;
+}

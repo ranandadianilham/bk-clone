@@ -9,7 +9,7 @@ const Header = (props: Props) => {
   return (
     <div className='header-block bg-dark-grey h-[76px] w-full text-white'>
         <div className='header-wrapper flex flex-row w-full h-full px-40'>
-            <div className='mt-3'>
+            <div className='mt-3 z-50'>
                 <Link href={"/"}>
                     <img src='/icons/logo-bk.png'
                     width={110}
@@ -23,7 +23,7 @@ const Header = (props: Props) => {
                         leftNavigation?.map((menu, id) => {
                             return (
                                 <div className='' key={id}>
-                                    <Link href={"/"} >
+                                    <Link href={menu.path} >
                                         <p className='subtitle'>{menu.subTitle}</p>
                                         <p className='title'>{menu.title}</p>
                                     </Link>
