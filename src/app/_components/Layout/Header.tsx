@@ -14,6 +14,7 @@ const Header = (props: Props) => {
                     <img src='/icons/logo-bk.png'
                     width={110}
                     height={110}
+                    alt='logo'
                     />
                 </Link>
             </div>

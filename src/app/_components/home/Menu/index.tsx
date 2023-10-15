@@ -16,7 +16,7 @@ const index = (props: Props) => {
               <div key={menu.id} className="col-span-2  menu-box w-[267px]  shadow-xl border rounded-xl p-[20px]">
                 <Link href={"/"}>
                   <div className="flex justify-center">
-                    <img src={`/images/home/menus/menu_${menu.id}.jpg`} className="w-[267px] h-[192px] "/>
+                    <img src={`/images/home/menus/menu_${menu.id}.jpg`} className="w-[267px] h-[192px]" alt='menu image'/>
                   </div>
                   <div className="bottom-part grid grid-cols-6 justify-between mt-5">
                     <p className="title-col col-span-3">{menu.title}</p>

@@ -34,7 +34,7 @@ const page = (props: Props) => {
       <div className="w-full flex flex-col justify-start">
         <div className="w-full mb-10">
           <Link href={"/large-order"}>
-            <img src="/images/bulk_order_header.jpg" className="w-full" />
+            <img src="/images/bulk_order_header.jpg" className="w-full" alt="bulk image" />
           </Link>
         </div>
         <div className="w-2/4 border border-red-700 mx-auto">

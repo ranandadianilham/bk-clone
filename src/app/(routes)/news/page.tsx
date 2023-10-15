@@ -11,24 +11,28 @@ const page = (props: Props) => {
           <img
             src={"/images/news/banner_0.jpeg"}
             className='w-full'
+            alt='image 1'
           />
         </Link>
         <Link href={"/news/1"}>
           <img
             src={"/images/news/banner_1.jpeg"}
             className='w-full'
+            alt='image 1'
           />
         </Link>
         <Link href={"/news/2"}>
           <img
             src={"/images/news/banner_2.jpeg"}
             className='w-full'
+            alt='image 1'
           />
         </Link>
         <Link href={"/news/3"}>
           <img
             src={"/images/news/banner_3.jpeg"}
             className='w-full'
+            alt='image 1'
           />
         </Link>
       </div>
