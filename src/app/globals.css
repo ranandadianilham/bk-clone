@@ -125,3 +125,10 @@ body {
 .right-menu-sub > div div:nth-child(2) > p:first-child {
     font-size: 20px;
 }
+
+/* news */
+
+.news-wrapper > a{
+    
+    margin: 10px 0;
+}
