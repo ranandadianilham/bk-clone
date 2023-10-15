@@ -132,3 +132,8 @@ body {
     
     margin: 10px 0;
 }
+
+.user-form input {
+    border: 1px solid black;
+    margin: 5px 10px;
+}
