@@ -6,7 +6,7 @@ import { useCart } from '@/app/_hooks/menuContext';
 
 type Props = {}
 
-const page = ({params}: {params: {id: number}}) => {
+const Page = ({params}: {params: {id: number}}) => {
     const { id } = params;
     const { groupMenu, menus, cart, addToCart } = useCart();
     const [itemQuantity, setItemQuantity] = useState(0);
@@ -87,4 +87,4 @@ const page = ({params}: {params: {id: number}}) => {
   )
 }
 
-export default page
+export default Page
