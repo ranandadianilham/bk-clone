@@ -5,14 +5,6 @@ import Link from "next/link";
 type Props = {};
 
 const index = (props: Props) => {
-  const menus = [
-    {
-      id: 0,
-      name: "title",
-      price: 125000,
-      image: "",
-    },
-  ];
 
   return (
     <div className="w-3/4 mx-auto  flex flex-col my-10 ">
@@ -26,7 +18,7 @@ const index = (props: Props) => {
               key={menu.id}
               className="col-span-2  menu-box w-[267px]  shadow-xl border rounded-xl p-[20px]"
             >
-              <Link href={"/"}>
+              <Link href={"/menus/"+menu.id}>
                 <div className="flex justify-center">
                   <img
                     src={`/images/home/menus/menu_${menu.id}.jpg`}
@@ -37,7 +29,9 @@ const index = (props: Props) => {
                 <div className="bottom-part grid grid-cols-6 justify-between mt-5">
                   <p className="title-col col-span-3">{menu.title}</p>
                   <div className="order-col col-span-3 flex items-center">
-                    <button className="bg-[#ed7801] w-full h-fit rounded-lg py-2">
+                    <button
+                    
+                    className="bg-[#ed7801] w-full h-fit rounded-lg py-2">
                       Order
                     </button>
                   </div>

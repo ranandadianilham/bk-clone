@@ -45,11 +45,16 @@ const Page = ({params}: { params : {id: string}}) => {
               <div 
               className='bg-white shadow-xl  col-span-3 p-5 rounded-xl'
               key={item.id} >
+                <a
+              href={`/product/${item.id}`}
+              
+              >
                 <div><img src={`/images/home/menus/menu_${item.id}.jpg`} alt='menu image'/></div>
                 <div>
                   <p>{item.title}</p>
                   <p>Rp. 25.000</p>
                 </div>
+                </a>
               </div>
             )
           })}
