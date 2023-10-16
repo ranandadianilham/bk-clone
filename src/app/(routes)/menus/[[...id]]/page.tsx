@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect }  from 'react'
-import {menuGroup} from "@/app/_datas/menu";
+import {menu, menuGroup} from "@/app/_datas/menu";
 import SearchIcon from "@/app/_components/icons/Search";
 import { redirect } from 'next/navigation';
 import { useCart } from '@/app/_hooks/menuContext';
@@ -9,7 +9,7 @@ type Props = {
 }
 
 const Page = ({params}: { params : {id: string}}) => {
-  const { groupMenu } = useCart();
+  const { groupMenu, currentMenuGroup } = useCart();
   const {id = ['0']} = params;
   useEffect(() => {
     console.log(id);
@@ -40,7 +40,7 @@ const Page = ({params}: { params : {id: string}}) => {
         </div>
       </div>
       <div className='right-menu-sub grid grid-cols-6 place-items-center gap-4'>
-          {menuGroup?.map((item, i) => {
+          {menu?.map((item, i) => {
             return (
               <div 
               className='bg-white shadow-xl  col-span-3 p-5 rounded-xl'

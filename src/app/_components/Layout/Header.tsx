@@ -1,11 +1,19 @@
+'use client';
 import Link from 'next/link'
 import React from 'react'
 import {leftNavigation } from "@/app/_datas/navigation";
 import Cart from './../icons/Cart';
+import { useCart } from '@/app/_hooks/menuContext';
 
 type Props = {}
 
 const Header = (props: Props) => {
+    const { cart } = useCart();
+    
+    const getTotalQyt = () => {
+        return cart.reduce((sum, current) => sum + current.quantity, 0)
+    }
+    
   return (
     <div className='header-block bg-dark-grey h-[76px] w-full text-white'>
         <div className='header-wrapper flex flex-row w-full h-full px-40'>
@@ -34,10 +42,15 @@ const Header = (props: Props) => {
                     }
                 </div>
                 <div className='right-nav flex justify-end h-full'>
-                    <div className='flex justify-center items-center'>
+                    <div className='flame-regular flex justify-center items-center'>
                         <div>Login</div>
                     </div>
-                    <div className='bg-primary-orange h-full w-[59px] flex justify-center items-center'>
+                    <div className='relative bg-primary-orange h-full w-[59px] flex justify-center items-center'>
+                        {cart.length > 0 && <div
+                        style={{
+                            fontSize: "15px"
+                        }}
+                        className='w-5 h-5 absolute rounded-full right-0 top-3 color bg-red-600 flex justify-center items-center'>{getTotalQyt()}</div>}
                         <Cart className="w-[40px] h-[40px]" />
                     </div>
                 </div>

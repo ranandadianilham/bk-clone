@@ -105,5 +105,40 @@ export const drinkOption = [
         "title": "Vanilla Sundae",
         "image": "https://media-order.bkdelivery.co.id/thumb/modifier_photo/2023/3/29/tj3gvw45fbrhgfabwt77at_drink_selection.png"
     }
+];
+
+export const menu = [
+    {
+        "id": "0",
+        "title": "Armand Dickerson",
+        "price": 23285,
+        "imageSrc": "http://cnn.com",
+        "imageAlt": "https://nytimes.com",
+        "group": "1"
+    },
+    {
+        "id": "1",
+        "title": "Preston Kennedy",
+        "price": 46236,
+        "imageSrc": "https://twitter.com",
+        "imageAlt": "http://baidu.com",
+        "group": "1"
+    },
+    {
+        "id": "2",
+        "title": "Nero May",
+        "price": 35944,
+        "imageSrc": "http://ebay.com",
+        "imageAlt": "http://instagram.com",
+        "group": "2"
+    },
+    {
+        "id": "3",
+        "title": "Emily Hayes",
+        "price": 47478,
+        "imageSrc": "https://ebay.com",
+        "imageAlt": "http://guardian.co.uk",
+        "group": "2"
+    },
 ]
 
