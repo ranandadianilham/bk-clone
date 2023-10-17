@@ -75,8 +75,8 @@ const Page = (props: Props) => {
             <p className="text-sm">Price Total</p>
             <p className="text-2xl">{formatIDR(totalPrice)}</p>
           </div>
-          <div>
-            <button>Selanjutnya</button>
+          <div className="flex mt-5">
+            <button className="bg-[#fda22b] w-full text-white p-3 rounded-xl flame-regular mx-auto">Selanjutnya</button>
           </div>
         </div>
       </div>
