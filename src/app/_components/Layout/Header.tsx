@@ -46,12 +46,14 @@ const Header = (props: Props) => {
                         <div>Login</div>
                     </div>
                     <div className='relative bg-primary-orange h-full w-[59px] flex justify-center items-center'>
+                        <a href="/cart">
                         {cart.length > 0 && <div
                         style={{
                             fontSize: "15px"
                         }}
                         className='w-5 h-5 absolute rounded-full right-0 top-3 color bg-red-600 flex justify-center items-center'>{getTotalQyt()}</div>}
                         <Cart className="w-[40px] h-[40px]" />
+                        </a>
                     </div>
                 </div>
             </div>
