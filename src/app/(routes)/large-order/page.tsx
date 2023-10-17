@@ -42,10 +42,14 @@ const eventDetailInit : EventDetailType = {
   }
 }
 
+type BulkItem = {
+  id: string,
+  qyt: number
+}
+
 const Page = (props: Props) => {
-  const [useSelectedTime, setSelectedTime] = useState<timeOptType>(timeOptions[0]);
-  const [eventDate, setEventDate] = useState<Date | null>(new Date());
   const [eventDetail, seteventDetail] = useState<EventDetailType>(eventDetailInit)
+  const [orderBulk, setOrderBulk] = useState<BulkItem[]>([]);
   
   const handleEventUpdate = (key : string, value: any) => {
     let keys = key.split(".");
@@ -65,6 +69,21 @@ const Page = (props: Props) => {
     }
   }
   
+  const handleBulkOrder = ({id, qyt} : BulkItem) => {
+    let tempBulk = [...orderBulk];
+    let exist = tempBulk.find(item => item.id === id);
+    
+    if(exist) {
+      exist.qyt = qyt;
+    }else {
+      tempBulk.push({id, qyt})
+    }
+    
+    setOrderBulk(tempBulk);
+  }
+  
+  
+  
   const { menus } = useCart();
   /* const generateTimeOptions = (startHour = 0, endHour = 23, interval = 60) => {
     const timeOptions = [];
@@ -80,11 +99,6 @@ const Page = (props: Props) => {
     return timeOptions;
   }; */
 
-  const handleTimeChange = (selectedOption: any) => {
-    setSelectedTime(selectedOption);
-  };
-
-  
 
   return (
     <div className="min-h-[74vh] mb-20 flame-regular">
@@ -110,7 +124,15 @@ const Page = (props: Props) => {
                           <span>{item.title}</span>
                         </div>
                         <div className="w-fit border">
-                          <input className="px-1 rounded-md" placeholder="jumlah" />
+                          <input 
+                          onChange={(e) => {
+                            let bulk : BulkItem = {
+                              id: item.id,
+                              qyt: parseInt(e.target.value)
+                            }
+                            handleBulkOrder(bulk);
+                          }}
+                          value={orderBulk.find((bulk) => item.id === bulk.id)?.qyt || 0} className="px-1 rounded-md" placeholder="jumlah" />
                         </div>
                       </div>
                     )
@@ -217,6 +239,7 @@ const Page = (props: Props) => {
                 <button
                 onClick={() => {
                   console.log('form', eventDetail);
+                  console.log('f', orderBulk)
                 }}
                 >SUBMIT</button>
               </div>
