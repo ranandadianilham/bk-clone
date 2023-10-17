@@ -16,6 +16,7 @@ type CartContextType = {
   drinks: Drink[];
   currentMenuGroup: number;
   addToCart: (item: CartItem) => void;
+  addToCartBulk: (items: CartItem[]) => void,
   removeFromCart: (itemId: number) => void;
   clearCart: () => void;
   handleCurrentMenu: (id: number) => void;
@@ -28,6 +29,7 @@ const defaultCart: CartContextType = {
   drinks: [],
   currentMenuGroup: 0,
   addToCart: (item) => {},
+  addToCartBulk: (items) => {},
   removeFromCart: (itemId) => {},
   clearCart: () => {},
   handleCurrentMenu: () => {}
@@ -53,6 +55,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const addToCart = (item: CartItem) => {
     setCart((prevCart) => [...prevCart, item]);
   };
+  
+  const addToCartBulk = (items: CartItem[]) => {
+    setCart((prevCart) => [...prevCart, ...items]);
+  };
 
   const removeFromCart = (itemId: number) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
@@ -75,6 +81,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         menus,
         currentMenuGroup,
         addToCart,
+        addToCartBulk,
         removeFromCart,
         clearCart,
         handleCurrentMenu

@@ -7,6 +7,7 @@ import TimePicker from "react-time-picker";
 import { useCart } from "@/app/_hooks/menuContext";
 import ReactDatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
+import { CartItem } from "@/app/_hooks/types";
 
 type Props = {};
 
@@ -84,7 +85,7 @@ const Page = (props: Props) => {
   
   
   
-  const { menus } = useCart();
+  const { menus , addToCartBulk} = useCart();
   /* const generateTimeOptions = (startHour = 0, endHour = 23, interval = 60) => {
     const timeOptions = [];
     for (let hour = startHour; hour <= endHour; hour++) {
@@ -240,6 +241,16 @@ const Page = (props: Props) => {
                 onClick={() => {
                   console.log('form', eventDetail);
                   console.log('f', orderBulk)
+                  let bulkTemp: CartItem[] = orderBulk.map((item) => {
+                    let menuItem = menus.find((menu) => menu.id === (item.id));
+                    return {
+                      id: parseInt(item.id),
+                      name: menuItem?.title || '',
+                      price: (menuItem?.price || 1) * item.qyt,
+                      quantity: item.qyt
+                    }
+                  });
+                  addToCartBulk(bulkTemp);
                 }}
                 >SUBMIT</button>
               </div>
