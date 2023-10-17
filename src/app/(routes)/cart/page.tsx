@@ -49,31 +49,24 @@ const Page = (props: Props) => {
               </tr>
             </thead>
             <tbody>
-              {cart &&
-                cart.map((item) => {
+              {cart.length > 0 ?
+                cart.map((item, id) => {
                   return (
                     <tr key={item.id}>
-                      <td>{item.name}</td>
-                      <td>{item.quantity}</td>
-                      <td>{item.price}</td>
+                      <td className="flex items-center gap-3 p-1">
+                        <img
+                          src={`/images/home/menus/menu_${id}.jpg`}
+                          alt="image"
+                          height={100}
+                          width={100}
+                        />
+                        <p>{item.name}</p>
+                      </td>
+                      <td className="text-end">{item.quantity}</td>
+                      <td>{formatIDR(item.price)}</td>
                     </tr>
                   );
-                })}
-              {cart.length < 1 && (
-                <tr className="">
-                  <td className="flex items-center gap-3 p-1">
-                    <img
-                      src="/images/home/menus/menu_0.jpg"
-                      alt="image"
-                      height={100}
-                      width={100}
-                    />
-                    <p>Double Cheese Borgar</p>
-                  </td>
-                  <td className="text-end">4</td>
-                  <td>11961</td>
-                </tr>
-              )}
+                }) : null}
             </tbody>
           </table>
         </div>
