@@ -110,7 +110,7 @@ export const drinkOption = [
 export const menu = [
     {
         "id": "0",
-        "title": "Armand Dickerson",
+        "title": "Regular Burger",
         "price": 23285,
         "imageSrc": "http://cnn.com",
         "imageAlt": "https://nytimes.com",
@@ -118,7 +118,7 @@ export const menu = [
     },
     {
         "id": "1",
-        "title": "Preston Kennedy",
+        "title": "Double Wing",
         "price": 46236,
         "imageSrc": "https://twitter.com",
         "imageAlt": "http://baidu.com",
@@ -126,7 +126,7 @@ export const menu = [
     },
     {
         "id": "2",
-        "title": "Nero May",
+        "title": "Triple Cheese Burger",
         "price": 35944,
         "imageSrc": "http://ebay.com",
         "imageAlt": "http://instagram.com",
@@ -134,7 +134,7 @@ export const menu = [
     },
     {
         "id": "3",
-        "title": "Emily Hayes",
+        "title": "Chicken Kebab",
         "price": 47478,
         "imageSrc": "https://ebay.com",
         "imageAlt": "http://guardian.co.uk",

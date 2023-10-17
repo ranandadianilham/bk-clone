@@ -4,11 +4,71 @@ import {timeOptions, timeOptType} from "@/app/_datas/time-picker";
 import React, {useId, useState } from "react";
 import Select from "react-select";
 import TimePicker from "react-time-picker";
+import { useCart } from "@/app/_hooks/menuContext";
+import ReactDatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
+
 type Props = {};
+
+type EventDetailType = {
+  buyerName: string;
+  email: string;
+  phone: string;
+  birthDate: Date;
+  address: string;
+  event: {
+    name: string;
+    startDateTime: Date;
+    startTime: {
+      label: string,
+      value: string
+    }
+    note: string;
+  };
+};
+
+
+const eventDetailInit : EventDetailType = {
+  buyerName: '',
+  email: '',
+  phone: '',
+  birthDate: new Date(),
+  address: '',
+  event: {
+    name: '',
+    startDateTime: new Date(),
+    startTime: {
+      label: "00:00",
+      value: "00:00",
+    },
+    note: ''
+  }
+}
 
 const Page = (props: Props) => {
   const [useSelectedTime, setSelectedTime] = useState<timeOptType>(timeOptions[0]);
-
+  const [eventDate, setEventDate] = useState<Date | null>(new Date());
+  const [eventDetail, seteventDetail] = useState<EventDetailType>(eventDetailInit)
+  
+  const handleEventUpdate = (key : string, value: any) => {
+    let keys = key.split(".");
+    if(keys.length > 1) {
+      seteventDetail((prev) => ({
+        ...prev,
+        event: {
+          ...prev.event,
+          [keys[1]]: value
+        }
+      }));
+    }else {
+      seteventDetail((prev) => ({
+        ...prev,
+        [key]: value
+      }));
+    }
+  }
+  
+  const { menus } = useCart();
   /* const generateTimeOptions = (startHour = 0, endHour = 23, interval = 60) => {
     const timeOptions = [];
     for (let hour = startHour; hour <= endHour; hour++) {
@@ -30,66 +90,115 @@ const Page = (props: Props) => {
   
 
   return (
-    <div className="min-h-[74vh] mb-20">
+    <div className="min-h-[74vh] mb-20 flame-regular">
       <div className="w-full flex flex-col justify-start">
         <div className="w-full mb-10">
           <Link href={"/large-order"}>
             <img src="/images/bulk_order_header.jpg" className="w-full" alt="bulk image" />
           </Link>
         </div>
-        <div className="w-2/4 border border-red-700 mx-auto">
-          <div className="left-side">
-            <form>
+        <div className="w-2/4 border border-red-700 mx-auto bg-white">
+          <div className="left-side px-3">
+            <div>
               <div>
                 <p>RAMEIN ACARAMU BARENG BK!</p>
               </div>
               <div>
                 <p className="">Pilih Paket (Minimum order 20 pax/Paket)</p>
-                <div></div>
+                <div className="flex flex-col px-3">
+                  {menus.map(item => {
+                    return (
+                      <div key={item.id} className="flex my-2 p-2 flex-row w-[100%] bg-[#f9f4f2]">
+                        <div className="w-3/4">
+                          <span>{item.title}</span>
+                        </div>
+                        <div className="w-fit border">
+                          <input className="px-1 rounded-md" placeholder="jumlah" />
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
               <div>
                 <p>Lengkapi data diri kamu!</p>
                 <div className="user-form w-full">
-                  <input className="w-6/12" type="text" placeholder="Nama" />
+                  <input
+                  value={eventDetail.buyerName}
+                  onChange={(e) => {
+                    handleEventUpdate('buyerName', e.target.value);
+                  }}
+                  className="w-6/12" type="text" placeholder="Nama" />
                   <input
                     className="w-4/12"
                     type="text"
                     placeholder="No Handphone"
+                    value={eventDetail.phone}
+                    onChange={(e) => {
+                      handleEventUpdate('phone', e.target.value);
+                    }}
                   />
-                  <input className="w-6/12" type="text" placeholder="Email" />
-                  <input
-                    className="w-4/12"
-                    type="text"
-                    placeholder="Tanggal Lahir"
-                  />
+                  <input 
+                  value={eventDetail.email}
+                  onChange={(e) => {
+                    handleEventUpdate('email', e.target.value);
+                  }}
+                  className="w-6/12" type="email" placeholder="Email" />
+                  <div className="w-4/12">
+                  <ReactDatePicker 
+                    className=" p-1 border border-black"
+                    selected={eventDetail.birthDate}
+                    placeholderText="Tanggal Lahir"
+                    onChange={(date: Date | null) => {
+                      handleEventUpdate('birthDate', date);
+                    }}
+                    />
+                  </div>
                   <textarea
                     rows={4}
                     cols={60}
                     placeholder="Alamat"
+                    value={eventDetail.address}
+                  onChange={(e) => {
+                    handleEventUpdate('address', e.target.value);
+                  }}
                     className="col-span-12  border border-slate-900 mx-[10px]"
                   />
                 </div>
               </div>
               <div>
                 <p>Detail Acara!</p>
-                <div className="user-form w-full" >
-                  <input className="w-full" type="text" placeholder="Nama" />
-                  <Select
-                    instanceId={useId()}
-                    options={[...timeOptions]}
+                <div className="w-full grid grid-cols-6 px-1" >
+                  <div className="col-span-6 mb-3">
+                    <input 
+                    value={eventDetail.event.name}
                     onChange={(e) => {
-                        
+                      handleEventUpdate('event.name', e.target.value);
                     }}
-                    inputValue={""}
-                    value={useSelectedTime}
-                  />
-                  <input className="w-4/12" type="text" placeholder="Email" />
-                  <textarea
-                    rows={4}
-                    cols={60}
-                    placeholder="Alamat"
-                    className="col-span-12  border border-slate-900 mx-[10px]"
-                  />
+                    className="w-full border border-black px-1" type="text" placeholder="Nama" />
+                  </div>
+                  <div className="col-span-3 flex items-center">
+                    <Select
+                      className="w-full"
+                      instanceId={useId()}
+                      options={[...timeOptions]}
+                      onChange={(e) => {
+                          handleEventUpdate('event.startTime', e);
+                      }}
+                      inputValue={""}
+                      value={eventDetail.event.startTime}
+                    />
+                  </div>
+                  <div className="col-span-3 flex items-center ml-3 w-full">
+                    <ReactDatePicker 
+                    className=" p-1 border border-black"
+                    selected={eventDetail.event.startDateTime}
+                    placeholderText="Start Date"
+                    onChange={(date: Date | null) => {
+                      handleEventUpdate('event.startDateTime', date);
+                    }}
+                    />
+                  </div>
                 </div>
               </div>
               <div>
@@ -98,15 +207,23 @@ const Page = (props: Props) => {
                   <textarea
                     rows={4}
                     cols={60}
+                    value={eventDetail.event.note}
+                    onChange={(e) => {
+                      handleEventUpdate('event.note', e.target.value);
+                    }}
                     placeholder="Tulis request menu lain disini!"
                     className="col-span-12  border border-slate-900 mx-[10px]"
                   />
                 </div>
               </div>
-              <div>
-                <button>SUBMIT</button>
+              <div className="">
+                <button
+                onClick={() => {
+                  console.log('form', eventDetail);
+                }}
+                >SUBMIT</button>
               </div>
-            </form>
+            </div>
           </div>
           <div className="right-side"></div>
         </div>
