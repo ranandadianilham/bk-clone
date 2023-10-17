@@ -1,6 +1,7 @@
 import React from "react";
 import Phone from "@/app/_components/icons/Phone";
 import Mail from "@/app/_components/icons/Mail";
+import Link from "next/link";
 type Props = {};
 
 const Footer = (props: Props) => {
@@ -18,21 +19,21 @@ const Footer = (props: Props) => {
             <Phone className="w-6 h-6 mr-2" />
             15000 25
           </span>
-          <a
+          <Link
             className="flex items-center font-bold"
             href="mailto:guestservice@burgerking.co.id"
           >
             <Mail />
             <span className="mr-3"></span> guestservice@burgerking.co.id
-          </a>
+          </Link>
           <div></div>
         </div>
 
         {/* more */}
         <div className="">
-          <a>About Us</a>
-          <a>Kebijakan Privasi</a>
-          <a>Syarat dan Ketentuan</a>
+          <Link href={"/"}>About Us</Link>
+          <Link href={"/"}>Kebijakan Privasi</Link>
+          <Link href={"/"}>Syarat dan Ketentuan</Link>
           <span>
             TM & © 2023 Burger King Corporation. Used Under License. All rights
             reserved.

@@ -4,6 +4,7 @@ import {menu, menuGroup} from "@/app/_datas/menu";
 import SearchIcon from "@/app/_components/icons/Search";
 import { redirect } from 'next/navigation';
 import { useCart } from '@/app/_hooks/menuContext';
+import Link from 'next/link';
 type Props = {
   
 }
@@ -28,12 +29,12 @@ const Page = ({params}: { params : {id: string}}) => {
           {groupMenu?.map((item, i) => {
             return (
               <div key={item.id} className={`${(item.id).toString() === id[0] ? "bg-secondary-orange": "bg-yellow-200"}`}>
-              <a
+              <Link
               href={`/menus/${item.id}`}
               
               >
                 <p>{item.title}</p>
-              </a>
+              </Link>
               </div>
             )
           })}
@@ -45,7 +46,7 @@ const Page = ({params}: { params : {id: string}}) => {
               <div 
               className='bg-white shadow-xl  col-span-3 p-5 rounded-xl'
               key={item.id} >
-                <a
+                <Link
               href={`/product/${item.id}`}
               
               >
@@ -54,7 +55,7 @@ const Page = ({params}: { params : {id: string}}) => {
                   <p>{item.title}</p>
                   <p>Rp. 25.000</p>
                 </div>
-                </a>
+                </Link>
               </div>
             )
           })}

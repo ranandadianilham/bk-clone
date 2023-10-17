@@ -3,6 +3,7 @@ import { menuGroup } from '@/app/_datas/menu';
 import React, { useState } from 'react'
 import SearchIcon from "@/app/_components/icons/Search";
 import { useCart } from '@/app/_hooks/menuContext';
+import Link from 'next/link';
 
 type Props = {}
 
@@ -45,12 +46,12 @@ const Page = ({params}: {params: {id: number}}) => {
           {groupMenu?.map((item, i) => {
             return (
               <div key={item.id} className={`${((item.id)) === id.toString() ? "bg-secondary-orange": "bg-yellow-200"}`}>
-              <a
+              <Link
               href={`/product/${item.id}`}
               
               >
                 <p>{item.title}</p>
-              </a>
+              </Link>
               </div>
             )
           })}
