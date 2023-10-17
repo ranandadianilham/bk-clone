@@ -37,10 +37,7 @@ const eventDetailInit : EventDetailType = {
   event: {
     name: '',
     startDateTime: new Date(),
-    startTime: {
-      label: "00:00",
-      value: "00:00",
-    },
+    startTime: timeOptions[7],
     note: ''
   }
 }
@@ -97,7 +94,7 @@ const Page = (props: Props) => {
             <img src="/images/bulk_order_header.jpg" className="w-full" alt="bulk image" />
           </Link>
         </div>
-        <div className="w-2/4 border border-red-700 mx-auto bg-white">
+        <div className="w-2/4  shadow-md mx-auto bg-white">
           <div className="left-side px-3">
             <div>
               <div>
