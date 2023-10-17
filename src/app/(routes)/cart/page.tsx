@@ -1,12 +1,13 @@
 "use client";
 import { useCart } from "@/app/_hooks/menuContext";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 type Props = {};
 
 const Page = (props: Props) => {
   const { cart } = useCart();
   const [totalPrice, setTotalPrice] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
   const getTotalPrice = () => {
     return cart.reduce((sum, current) => sum + current.price, 0);
   };
@@ -18,15 +19,15 @@ const Page = (props: Props) => {
     });
     return formatter.format(number);
   }
-  
+
   useEffect(() => {
     let price = getTotalPrice();
     setTotalPrice(price);
-  }, [cart])
-  
+  }, [cart]);
+
   return (
     <div className="min-h-[74vh] my-20">
-      <div className="shadow-xl w-3/4 mx-auto min-h-[500px]">
+      <div className="shadow-xl w-3/4 mx-auto min-h-[500px]  flex flex-row">
         <div className="w-3/4">
           <table
             className="cart-table flame-regular"
@@ -76,10 +77,13 @@ const Page = (props: Props) => {
             </tbody>
           </table>
         </div>
-        <div className="w-1/4">
+        <div className="border-s px-2 pt-5 w-1/4 flex flex-col">
+          <div className="flame-regular">
+            <p className="text-sm">Price Total</p>
+            <p className="text-2xl">{formatIDR(totalPrice)}</p>
+          </div>
           <div>
-            <p>Price Total</p>
-            <p>{formatIDR(totalPrice)}</p>
+            <button>Selanjutnya</button>
           </div>
         </div>
       </div>
