@@ -239,8 +239,8 @@ const Page = (props: Props) => {
               <div className="">
                 <button
                 onClick={() => {
-                  console.log('form', eventDetail);
-                  console.log('f', orderBulk)
+                  if(orderBulk.length < 1) return;
+                  
                   let bulkTemp: CartItem[] = orderBulk.map((item) => {
                     let menuItem = menus.find((menu) => menu.id === (item.id));
                     return {
@@ -251,6 +251,7 @@ const Page = (props: Props) => {
                     }
                   });
                   addToCartBulk(bulkTemp);
+                  alert('added to cart')
                 }}
                 >SUBMIT</button>
               </div>
