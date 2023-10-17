@@ -1,5 +1,6 @@
 "use client";
 import { useCart } from "@/app/_hooks/menuContext";
+import { redirect } from "next/dist/server/api-utils";
 import React, { useState, useEffect } from "react";
 
 type Props = {};
@@ -19,8 +20,10 @@ const Page = (props: Props) => {
     });
     return formatter.format(number);
   }
+  
 
   useEffect(() => {
+    
     let price = getTotalPrice();
     setTotalPrice(price);
   }, [cart]);

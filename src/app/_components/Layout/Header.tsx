@@ -1,18 +1,26 @@
 'use client';
 import Link from 'next/link'
-import React from 'react'
+import React, {useEffect} from 'react'
 import {leftNavigation } from "@/app/_datas/navigation";
 import Cart from './../icons/Cart';
 import { useCart } from '@/app/_hooks/menuContext';
+import { usePathname } from 'next/navigation';
 
 type Props = {}
 
 const Header = (props: Props) => {
     const { cart } = useCart();
+    const pathName = usePathname();
     
     const getTotalQyt = () => {
         return cart.reduce((sum, current) => sum + current.quantity, 0)
     }
+    
+    useEffect(() => {
+        
+    }, [cart])
+    
+    
     
   return (
     <div className='header-block bg-dark-grey h-[76px] w-full text-white'>
@@ -46,7 +54,7 @@ const Header = (props: Props) => {
                         <div>Login</div>
                     </div>
                     <div className='relative bg-primary-orange h-full w-[59px] flex justify-center items-center'>
-                        <Link href="/cart">
+                        <Link href={`${cart.length > 0 ? '/cart' : pathName}`}>
                         {cart.length > 0 && <div
                         style={{
                             fontSize: "15px"
