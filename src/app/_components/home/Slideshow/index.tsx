@@ -8,8 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 type Props = {};
 
-const index = (props: Props) => {
-  const sliderRef = useRef(null);
+const Index = (props: Props) => {
+  //const sliderRef = useRef(null);
 
   const settings = {
     dots: false,
@@ -69,4 +69,4 @@ const index = (props: Props) => {
   );
 };
 
-export default index;
+export default Index;
